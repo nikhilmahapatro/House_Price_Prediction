@@ -1,45 +1,51 @@
-# House Price Prediction
+# Housing Price Predictor (ML Regressions)
 
-This project uses supervised machine learning to predict house prices based on various features such as number of bedrooms, bathrooms, square footage, location, and more. It demonstrates a full end-to-end data science workflow — from raw data exploration to model evaluation — using a real-world housing dataset.
+A complete ML pipeline that trains, evaluates, and deploys 13 regression models to predict housing prices based on real estate data. Includes a Flask-based web app for live prediction and performance comparison.
 
-## What this project includes
+>  Select a model, input housing features, and get price predictions directly from your browser.
 
-- Exploratory Data Analysis (EDA) to identify trends, distributions, and outliers
-- Feature engineering using combinations and transformations (e.g., age from `yr_built`)
-- Handling of categorical and numerical data
-- Model training using regression algorithms such as Linear Regression and Random Forest
-- Performance evaluation using RMSE, MAE, and R² Score
-- Interpretation of feature importance to understand key pricing factors
+---
 
-## Technologies used
+### What it does
+- Loads and preprocesses the `USA_Housing.csv` dataset
+- Trains 13 different regression models:
+  - Linear, Ridge, Lasso, ElasticNet
+  - Polynomial Regression
+  - SGD, Huber (Robust)
+  - Random Forest, SVM, KNN
+  - LightGBM, XGBoost
+  - MLPRegressor (ANN)
+- Evaluates each model using MAE, MSE, and R² score
+- Saves all models as `.pkl` files
+- Displays a table of model metrics
+- Lets users select a model and input features for prediction
 
-- Python (Pandas, NumPy, Matplotlib, Seaborn)
-- Scikit-learn for modeling and evaluation
-- Jupyter Notebook for development
+---
 
-## What you will learn
+###  Demo
+![screenshot of app form + prediction result]()
 
-- How to structure and clean a real-world dataset
-- The importance of preprocessing (scaling, encoding, feature selection)
-- When to apply regression models and how to evaluate them
-- Visualizing relationships between features and price
-- Translating domain understanding into feature engineering
+---
 
-## Dataset Description
 
-The dataset consists of 21,613 records and 21 columns, including:
+---
 
-- **Target**: `price` — the sale price of the house
-- **Key features**:  
-  `bedrooms`, `bathrooms`, `sqft_living`, `sqft_lot`, `floors`,  
-  `waterfront`, `view`, `condition`, `grade`,  
-  `sqft_above`, `sqft_basement`, `zipcode`, `lat`, `long`, `yr_built`, etc.
+### 💻 How to run it
 
-There are no missing values in the dataset.
+```bash
+git clone https://github.com/nikhilmahapatro/Housing_Price_Predictor_-MLRegressions.git
+cd Housing_Price_Predictor_-MLRegressions
 
-## How to Run
+# (Optional) create a virtual environment
+python -m venv .venv
+source .venv/bin/activate  # or .venv\Scripts\activate on Windows
 
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/nikhilmahapatro/House_Price_Prediction.git
-   cd House_Price_Prediction
+# Install requirements
+pip install -r requirements.txt
+
+# Run model training
+python model.py
+
+# Launch web app
+python app.py
+
