@@ -23,7 +23,7 @@ A complete ML pipeline that trains, evaluates, and deploys 13 regression models 
 ---
 
 ###  Demo
-![screenshot of app form + prediction result]()
+![demo.png]()
 
 ---
 
